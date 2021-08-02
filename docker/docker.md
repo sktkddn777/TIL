@@ -68,3 +68,15 @@
     $ docker run -d myproject 
     ```
 
+## 도커 데몬
+- Docker 데몬(dockerd)은 API요청을 수신하고 이미지, 컨테이너, 네트워크 및 볼륨과 같은 Docker 객체를 관리한다.  
+
+## 도커 클라이언트
+- Docker사용자가 `docker run` 같은 명령어를 사용하면 클라이언트가 이러한 명령을 API로서 dockerd로 보내 실행한다.  
+- Docker 클라이언트는 docker.sock에 있는 유닉스 소켓을 통해 도커 데몬의 API를 호출한다.
+
+## 도커 registries
+- 도커 이미지를 저장한다.
+
+### 도커 명령어가 실제 도커 엔진이 아닌 클라이언트로서의 도커다.
+실제 도커 엔진의 프로세스는 dockerd파일로 실행된다.
