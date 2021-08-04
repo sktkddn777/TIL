@@ -1,0 +1,1 @@
+## 만약에 docker-compose를 잘 맞춰줬는데 실행이 안된다면 volume을 삭제했다가 해보자.

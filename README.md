@@ -1,5 +1,9 @@
 # TIL
 
+## aws
+-[aws](aws/aws.md)  
+-[ECS setup](aws/ECS_setup.md)  
+-[vpc, 서브넷](vpc.md)  
 ## api
 -[api](api/api.md)
 
