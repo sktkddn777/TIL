@@ -2,6 +2,25 @@
 - 파이썬으로 제작된 오픈소스 웹 프레임워크 입니다.  
 
 ## Django의 특징
+![img](https://blog.kakaocdn.net/dn/uJODm/btq5txmspmX/q0u7UyWF7Ule8gmZcqI7Pk/img.png)
+
+## 그 전에!!! 
+MVC 모델이란. 
+Model
+서버가 가지고 있는 데이터베이스 작업이라고 생각하면 됩니다.  
+
+View
+브라우저 상에서 사용자에게 보여지는 페이지를 의미합니다.  
+
+Controller
+Model 에다가 일을 시키는 작업. User는 뷰를 통해 컨트롤러를 실행시켜 Model에다가 작업을 요청합니다.
+View와 Model의 중간다리 역할을 하는 셈이죠.
+
+Model       <->   Model
+
+View         <->   Template
+
+Controller  <->    View
 1. ### MTV 패턴을 사용한다.
     * **Model**: 데이터베이스에 저장되는 데이터.  
     Django는 SQL을 몰라도 DB작업을 해주는 ORM을 제공해준다.
