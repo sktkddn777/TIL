@@ -24,3 +24,35 @@ def solution(s):
         if len(res) < answer:
             answer = len(res)
     return answer
+
+    '''
+    11/16 답을 안보고 풀어봤다.
+
+    def solution(s):
+    result = 1000
+    N = len(s)
+    half = N // 2
+    division = 1
+    if N == 1:
+        return 1
+    while division <= half:
+        repeat = 1
+        new_s = ''
+        for i in range(N // division):
+            if s[i*division:(i+1)*division] == s[(i+1)*division:(i+2)*division]:
+                repeat += 1
+            else:
+                if repeat > 1:
+                    new_s += str(repeat) + s[i*division:(i+1)*division]
+                    repeat = 1
+                else:
+                    new_s += s[i*division:(i+1)*division]
+
+        new_s += s[(i+1)*division:]
+
+        if len(new_s) < result:
+            result = len(new_s)
+        division += 1
+
+    return result
+    '''
