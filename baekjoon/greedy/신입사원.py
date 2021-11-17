@@ -21,5 +21,4 @@ for _ in range(T):
       total += 1
 
   print(total)
-
     
