@@ -25,3 +25,21 @@ else:
   stack += num[idx:]
   stack = ''.join(stack)
   print(stack)
+
+'''
+다시 간단하게 푸는 법을 생각해보니까 코드 길이가 엄청 줄었다.
+N, K = map(int, input().split())
+number = input()
+stack = []
+
+for i in range(len(number)):
+    while stack and stack[-1] < number[i] and K > 0:
+        stack.pop()
+        K -= 1
+
+    stack.append(number[i])
+
+if K > 0:
+    stack = stack[:-K]
+print(''.join(stack))
+'''
