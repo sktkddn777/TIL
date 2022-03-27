@@ -1,25 +1,26 @@
 import sys
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
 
-def dfs(coor, alp_lst, arr, count):
+R, C = map(int, input().split())
+arr = [list(map(lambda x : ord(x) - 65, input())) for _ in range(R)]
+
+ans = 0
+alpha = [0] * 26
+
+def dfs(coor, count):
+  global ans
+  ans = max(ans, count)
   dx = [1, -1, 0, 0]
   dy = [0, 0, 1, -1]
   for i in range(4):
     tx = coor[0] + dx[i]
     ty = coor[1] + dy[i]
-    if 0 <= tx < len(arr) and 0 <= ty < len(arr[0]):
-      if arr[tx][ty] not in alp_lst:
-        count[tx][ty] = max(count[tx][ty], count[coor[0]][coor[1]] + 1)
-        dfs((tx, ty), alp_lst + [arr[tx][ty]], arr, count)
+    if 0 <= tx < R and 0 <= ty < C and alpha[arr[tx][ty]] == 0:
+      alpha[arr[tx][ty]] = 1
+      dfs((tx, ty), count + 1)
+      alpha[arr[tx][ty]] = 0
 
-R, C = map(int, input().split())
-arr = []
-count = [[0] * C for _ in range(R)]
-for _ in range(R):
-  arr.append(list(input()))
-count[0][0] = 1
-dfs((0, 0), [arr[0][0]], arr, count)
-
-print(count)
+alpha[arr[0][0]] = 1
+dfs((0, 0), 1)
+print(ans)
