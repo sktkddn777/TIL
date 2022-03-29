@@ -1,11 +1,12 @@
 N = int(input())
+arr = []
+for _ in range(N):
+  arr.append(list(map(int, input().split())))
+
 dp = [0] * (N+1)
-if N == 1:
-  print(1)
-elif N == 2:
-  print(3)
-else:
-  dp[1], dp[2] = 1, 3
-  for i in range(3, N+1):
-    dp[i] = 2*dp[i-2] + dp[i-1]
-  print(dp[N] % 10007)
+for i in range(N - 1, -1, -1):
+  if i + arr[i][0] > N:
+    dp[i] = dp[i+1]
+  else:
+    dp[i] = max(dp[i+1], arr[i][1] + dp[i+arr[i][0]])
+print(dp[0])
