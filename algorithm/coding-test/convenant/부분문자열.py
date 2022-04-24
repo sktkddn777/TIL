@@ -1,25 +1,33 @@
-S = list(input())
-P = list(input())
+# KMP 이해 X
 
-def check():
-    i = 0
-    j = 0
-    while i < len(S):
-        if S[i] == P[j]:
-            if len(S[i:]) < len(P):
-                return 0
-            res = 1
-            for j in range(len(P)):
-                if P[j] != S[i]:
-                    res = 0
-                    j = 0
-                    i -= 1
-                    break
-                i += 1
-                j += 1
-            if res:
-                return 1
-        i += 1
-    return 0
+# S = list(input())
+# P = list(input())
 
-print(check())
+# def KMP_table(word):
+#     table = [0] * len(word)
+
+#     j = 0
+#     for i in range(1, len(word)):
+#         while j > 0 and word[i] != word[j]:
+#             j = table[j-1]
+#         if word[i] == word[j]:
+#             j += 1
+#             table[i] = j
+#     return table
+
+# def KMP(S, P):
+#     n, m = len(S), len(P)
+#     table = KMP_table(S)
+#     idx = 0
+
+#     for i in range(n):
+#         while idx > 0 and S[i] != P[idx]:
+#             idx = table[idx-1]
+#         if S[i] == P[idx]:
+#             if idx == m-1:
+#                 return 1
+#             else:
+#                 idx += 1
+#     return 0
+
+# print(KMP(S, P))
