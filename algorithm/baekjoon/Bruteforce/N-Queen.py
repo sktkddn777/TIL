@@ -1,25 +1,27 @@
 import sys
 input = sys.stdin.readline
-cnt = 0
 
-N = int(input())
-queen_lst = [0] * N
+n = int(input())
 
-def is_promise(x):
-  for i in range(x):
-    if queen_lst[i] == queen_lst[x] or abs(queen_lst[i] - queen_lst[x]) == abs(i - x):
-      return 0
-  return 1
+ans = 0
+row = [0] * n
 
-def queen(x):
-  global cnt
-  if x == N:
-    cnt += 1
-    return 
-  for i in range(N):
-    queen_lst[x] = i
-    if is_promise(x):
-      queen(x+1)
-    
-queen(0)
-print(cnt)
+def n_queens(x):
+    global ans
+    if x == n:
+        ans += 1
+        return
+
+    else:
+        for i in range(n):
+            row[x] = i
+            flg = 1
+            for j in range(x):
+                if row[x] == row[j] or abs(row[x] - row[j]) == abs(x - j):
+                    flg = 0
+            
+            if flg:    
+                n_queens(x+1)
+
+n_queens(0)
+print(ans)
